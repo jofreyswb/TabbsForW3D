@@ -25,22 +25,18 @@ Author URI: http://website3D.ru
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-class TabsInTabs{
-    function TabsInTabs()
-    {
-        if (function_exists ('add_shortcode') )
-        {
-            add_shortcode('ljuser', array (&$this, 'user_shortcode') );
-            add_shortcode('ljcomm', array (&$this, 'community_shortcode') );
-        }
-    } /* and  function TabsInTabs*/
+define('MSP_HELLOWORLD_DIR', plugin_dir_path(__FILE__));
+define('MSP_HELLOWORLD_URL', plugin_dir_url(__FILE__));
 
-function user_shortcode ($atts, $content = null)
-    {
-        return "<b><span style='white-space: nowrap; display: inline !important;'><a href='http://$content.livejournal.com/profile'><img src='http://p-stat.livejournal.com/img/userinfo.gif' alt='[info]' width='17' height='17' style='vertical-align: bottom; border: 0; padding-right: 1px;vertical-align:middle; margin-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0;' /></a><a href='http://$content.livejournal.com/'><b>$content</b></a></span></b>";
-    }
+function load_includes_file(){
 
-}/* end class TabsInTabs*/
+    if(is_admin()) // подключаем файлы администратора, только если он авторизован
+        require_once(MSP_HELLOWORLD_DIR.'includes/tabsFuncionals.php');
+
+    require_once(MSP_HELLOWORLD_DIR.'includes/core.php');
+}
+load_includes_file();
+
 
 $TIT = new TabsInTabs();
 ?>
