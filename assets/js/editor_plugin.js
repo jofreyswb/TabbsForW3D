@@ -17,12 +17,21 @@
 			{
 				// Register the command so that it can be invoked by using tinyMCE.activeEditor.execCommand('mceLjusers');
 
-
-				ed.addCommand('mceTabintab', 
-					function() 
+				ed.addCommand('mceTabintab',
+					function()
 					{
 						var content = tinyMCE.activeEditor.selection.getContent({format : 'raw'});
 						var newcontent = '[tabintab]' + content + '[/tabintab]';
+
+						tinyMCE.activeEditor.selection.setContent(newcontent);
+					}
+				);
+
+				ed.addCommand('mceTabintabs',
+					function()
+					{
+						var content = tinyMCE.activeEditor.selection.getContent({format : 'raw'});
+						var newcontent = '[tabintabs]' + content + '[/tabintabs]';
 
 						tinyMCE.activeEditor.selection.setContent(newcontent);
 					}
@@ -31,6 +40,13 @@
 
 				
 				// Register tabintab button
+				ed.addButton('tabintabs',
+					{
+						title : 'TIT',
+						cmd : 'mceTabintabs',
+						image : url + '/img/*.gif'
+					}
+				);
 				ed.addButton('tabintab',
 					{
 						title : 'TIT',
@@ -38,7 +54,7 @@
 						image : url + '/img/*.gif'
 					}
 				);
-				
+
 			},
 		
 			/**

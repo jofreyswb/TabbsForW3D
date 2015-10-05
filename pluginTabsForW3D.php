@@ -31,9 +31,9 @@ define('MSP_HELLOWORLD_URL', plugin_dir_url(__FILE__));
 function load_includes_file(){
 
     if(is_admin()) // подключаем файлы администратора, только если он авторизован
-        require_once(MSP_HELLOWORLD_DIR.'includes/tabsFuncionals.php');
+        require_once(MSP_HELLOWORLD_DIR.'includes/tabsFunctionals.php');
 
-    require_once(MSP_HELLOWORLD_DIR.'includes/core.php');
+   /* require_once(MSP_HELLOWORLD_DIR.'includes/core.php');     */
 }
 load_includes_file();
 
